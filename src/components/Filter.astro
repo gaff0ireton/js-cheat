@@ -1,0 +1,71 @@
+---
+const categories = [
+  { label: 'すべて', value: 'all' },
+  { label: '変数・データ型', value: 'condition' },
+  { label: '繰り返し', value: 'loop' },
+  { label: '関数', value: 'function' },
+  { label: '配列処理', value: 'array' },
+  { label: 'オブジェクト処理', value: 'object' },
+  { label: 'モジュール化', value: 'module' },
+  { label: 'DOM操作', value: 'dom' },
+  { label: 'フォーム操作', value: 'form' },
+  { label: '非同期処理', value: 'async' },
+  { label: 'API操作', value: 'api' },
+];
+---
+
+<nav>
+  <ul class="filter-list">
+    {
+      categories.map((item) => (
+        <li>
+          <button
+            class:list={[
+              'filter-button',
+              {
+                'is-active': item.label === 'すべて',
+              },
+            ]}
+            type="button"
+            data-category={item.value}
+          >
+            {item.label}
+          </button>
+        </li>
+      ))
+    }
+  </ul>
+</nav>
+
+<script>
+  const buttons = document.querySelectorAll<HTMLFormElement>('.filter-button');
+
+  buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+      const category = button.dataset.category;
+      const activeButton = document.querySelector('.filter-button.is-active');
+      console.log(activeButton);
+
+      if (activeButton) {
+        activeButton.classList.remove('is-active');
+        button.classList.add('is-active');
+      }
+
+      const cards = [...document.querySelectorAll<HTMLFormElement>('.card')];
+
+      const filteredCards = cards.filter((card) => {
+        return card.dataset.category === category;
+      });
+
+      cards.forEach((card) => {
+        if (category === 'all') {
+          card.classList.remove('is-not');
+        } else if (!filteredCards.includes(card)) {
+          card.classList.add('is-not');
+        } else {
+          card.classList.remove('is-not');
+        }
+      });
+    });
+  });
+</script>

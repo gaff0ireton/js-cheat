@@ -1,0 +1,24 @@
+$bgColor: #F8F4DF;
+$cardColor: #FFFEF5;
+$txtColor: #242424;
+$acColor: #F7DF1E;
+$scColor: #FFF0A6;
+$bdColor: #242424;
+$sideColor: #ECE4BC;
+$btnColor: #F4EDCE;
+
+$hdFont: "Space Grotesk", sans-serif;
+$txtFont: "Zen Kaku Gothic New", sans-serif;
+$codeFont: "IBM Plex Mono", monospace;
+
+$fs-sm: clamp(12px, 1vw, 14px);
+$fs-md: clamp(14px, 1.2vw, 16px);
+$fs-lg: clamp(18px, 1.5vw, 22px);
+$fs-xl: clamp(28px, 3vw, 48px);
+
+// math モジュール
+@use "sass:math";
+@use "sass:map";
+
+// common/_index.scss を読み込む（mixin が使える）
+@use 'mixin';

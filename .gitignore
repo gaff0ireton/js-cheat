@@ -1,0 +1,26 @@
+# 依存パッケージ
+node_modules/
+
+# Astroの生成ファイル
+dist/
+.astro/
+
+# 環境変数（秘密情報）
+.env
+.env.*
+!.env.example
+
+# ログファイル
+*.log
+
+# OSが生成するファイル
+.DS_Store
+Thumbs.db
+
+# エディタの設定
+.vscode/*
+!.vscode/extensions.json
+.idea/
+
+# TypeScriptのビルドキャッシュ
+*.tsbuildinfo
